@@ -931,7 +931,7 @@ foreach(tm ${templates})
 endforeach()
 
 #translations
-if(MSGFMT_EXE)
+if(MSGFMT_EXE AND EXISTS ${CMAKE_SOURCE_DIR}/po)
 	file(GLOB po_files "${CMAKE_SOURCE_DIR}/po/*.po")
 	list(TRANSFORM po_files REPLACE "${CMAKE_SOURCE_DIR}/po/" "")
 	list(TRANSFORM po_files REPLACE ".po" "")
@@ -991,7 +991,7 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/perl/build/lib/ DESTINATION share/perl5
 	FILES_MATCHING PATTERN "*.pm")
 install(DIRECTORY ${CMAKE_BINARY_DIR}/templates/blt/ DESTINATION share/git-core/templates)
 
-if(MSGFMT_EXE)
+if(MSGFMT_EXE AND EXISTS ${CMAKE_SOURCE_DIR}/po)
 	install(DIRECTORY ${CMAKE_BINARY_DIR}/po/build/locale DESTINATION share)
 endif()
 
@@ -1231,7 +1231,9 @@ if(NOT ${CMAKE_BINARY_DIR}/CMakeCache.txt STREQUAL ${CACHE_PATH})
 		"file(WRITE ${CMAKE_SOURCE_DIR}/GIT-BUILD-DIR \"${CMAKE_BINARY_DIR}\")")
 	#misc copies
 	file(COPY ${CMAKE_SOURCE_DIR}/t/chainlint.pl DESTINATION ${CMAKE_BINARY_DIR}/t/)
-	file(COPY ${CMAKE_SOURCE_DIR}/po/is.po DESTINATION ${CMAKE_BINARY_DIR}/po/)
+	if(EXISTS ${CMAKE_SOURCE_DIR}/po/is.po)
+		file(COPY ${CMAKE_SOURCE_DIR}/po/is.po DESTINATION ${CMAKE_BINARY_DIR}/po/)
+	endif()
 	file(GLOB mergetools "${CMAKE_SOURCE_DIR}/mergetools/*")
 	file(COPY ${mergetools} DESTINATION ${CMAKE_BINARY_DIR}/mergetools/)
 	file(COPY ${CMAKE_SOURCE_DIR}/contrib/completion/git-prompt.sh DESTINATION ${CMAKE_BINARY_DIR}/contrib/completion/)

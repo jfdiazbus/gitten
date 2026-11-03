@@ -79,7 +79,9 @@ gitten check-ignore -v --no-index <path>
 exclusion in the other. A deliberate `gitten add -f <path>` overrides exclusions.
 The project's own `.githidden` also lists optional CI, GUI, web, translation,
 release-note, and formatting files not required by the command-line installer.
-Those files remain available in the source repository.
+Those optional files and generated build outputs are excluded from the tracked
+source tree. Applying hidden rules preserves any existing local copies; a fresh
+clone builds the command-line tools without them.
 
 ## Stop tracking existing files
 

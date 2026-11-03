@@ -2180,14 +2180,14 @@ foreach mergetool : mergetools
   install_data(mergetool, install_dir: git_exec_path / 'mergetools')
 endforeach
 
-if intl.found()
+if intl.found() and fs.is_dir('po')
   subdir('po')
 endif
 
 # Gitweb requires Perl, so we disable the auto-feature if Perl was not found.
 # We make sure further up that Perl is required in case the gitweb option is
 # enabled.
-gitweb_option = get_option('gitweb').disable_auto_if(not perl.found())
+gitweb_option = get_option('gitweb').disable_auto_if(not perl.found() or not fs.is_dir('gitweb'))
 if gitweb_option.allowed()
   subdir('gitweb')
   build_options_config.set('NO_GITWEB', '')

@@ -1,3 +1,0 @@
-cargo:rustc-link-search=.
-cargo:rustc-link-lib=git
-cargo:rustc-link-lib=z

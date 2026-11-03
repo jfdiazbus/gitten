@@ -151,10 +151,17 @@ See the [manual](MANUAL.md#stop-hiding-files),
 
 ## Project contents
 
-The C sources, tests, compatibility code, documentation, licenses, and Git
-helpers are retained because this is a complete Git fork. Unused upstream
-Git CI and contribution configuration has been removed. Generated binaries,
-object files, and copied Git metadata are excluded from commits.
+The tracked tree contains the command-line Git sources, tests, compatibility
+code, required documentation, licenses, and helper sources. Optional GUI, web,
+translation, CI, and release-note files are excluded by `.githidden`. Generated
+binaries, object files, dependency caches, and test results are also excluded;
+the installer regenerates the build outputs from source. Existing local copies
+are preserved when `gitten hidden apply` removes them from tracking.
+
+Fresh clones and source archives do not include these optional local files.
+Make automatically skips absent GUI/web source directories and translations. The source
+installer still builds and installs all required command-line helpers.
+Existing commits retain their original contents; cleanup does not rewrite history.
 
 ## Test and clean
 

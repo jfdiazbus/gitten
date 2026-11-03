@@ -911,6 +911,14 @@ ifndef WITH_BREAKING_CHANGES
 BUILT_INS += git-whatchanged$X
 endif
 
+# The compact command-line source distribution omits optional GUI sources.
+ifneq ($(words $(wildcard git-gui/Makefile gitk-git/Makefile)),2)
+NO_TCLTK = YesPlease
+endif
+ifeq ($(wildcard po/*.po),)
+NO_GETTEXT = YesPlease
+endif
+
 # what 'all' will build but not install in gitexecdir
 OTHER_PROGRAMS += git$X
 OTHER_PROGRAMS += gitten$X
@@ -3649,7 +3657,11 @@ coccicheck-pending: $(COCCICHECK_PATCHES_PENDING_INTREE)
 # only there to contain directory-specific rules and variables
 ## gitweb/Makefile inclusion:
 MAK_DIR_GITWEB = gitweb/
+ifneq ($(wildcard gitweb/Makefile),)
 include gitweb/Makefile
+else
+NO_GITWEB = YesPlease
+endif
 
 .PHONY: gitweb
 gitweb: $(MAK_DIR_GITWEB_ALL)

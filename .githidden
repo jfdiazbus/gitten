@@ -7,7 +7,7 @@ file with spaces
 !public.secret
 
 # Optional files not needed by install.sh's command-line build.
-# These rules do not untrack existing source files.
+# Applied with gitten hidden apply; local copies are preserved.
 /ci/
 /git-gui/
 /gitk-git/
@@ -18,3 +18,45 @@ file with spaces
 /.clang-format
 /.editorconfig
 /.tsan-suppressions
+
+# Generated outputs: the installer regenerates these from the retained sources.
+*.o
+*.a
+*.gch
+*.o.d
+.depend/
+/target/
+/Cargo.lock
+/GIT-*
+!/GIT-*.in
+!/GIT-VERSION-GEN
+/git
+/gitten
+/git-*
+!/git-*.c
+!/git-*.h
+!/git-*.sh
+!/git-*.perl
+!/git-*.py
+/scalar
+/bin-wrappers/*
+!/bin-wrappers/wrap-for-bin.sh
+!/bin-wrappers/.gitignore
+!/bin-wrappers/meson.build
+/perl/build/
+/templates/blt/
+/templates/boilerplates.made
+/t/test-results/
+/t/unit-tests/bin/
+/t/unit-tests/clar-decls.h
+/t/unit-tests/clar.suite
+/command-list.h
+/config-list.h
+/hook-list.h
+/version-def.h
+/oss-fuzz/fuzz-*
+!/oss-fuzz/fuzz-*.c
+!/oss-fuzz/fuzz-*.h
+
+/t/helper/test-fake-ssh
+/t/helper/test-tool

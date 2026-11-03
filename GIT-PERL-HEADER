@@ -1,1 +1,0 @@
-use lib (split(/:/, $ENV{GITPERLLIB} || '/home/juan-fe/.local/opt/gitten/share/perl5'));
