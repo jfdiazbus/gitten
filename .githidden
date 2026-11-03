@@ -1,0 +1,8 @@
+# Local files that should stay out of future commits
+.env
+*.secret
+cache/
+/root-only.txt
+file with spaces
+!public.secret
+git
