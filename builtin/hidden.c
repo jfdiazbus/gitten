@@ -89,3 +89,23 @@ int cmd_hidden(int argc, const char **argv, const char *prefix,
 	dir_clear(&hidden);
 	return errors ? 1 : 0;
 }
+
+static const char * const stop_usage[] = {
+	N_("git stop"),
+	NULL
+};
+
+int cmd_stop(int argc, const char **argv, const char *prefix,
+	     struct repository *repo)
+{
+	struct option options[] = { OPT_END() };
+
+	argc = parse_options(argc, argv, prefix, options, stop_usage, 0);
+	if (argc)
+		usage_with_options(stop_usage, options);
+	if (repo_config_set_gently(repo, "gitten.hidden", "false"))
+		return error(_("unable to disable .githidden rules"));
+	puts(_(".githidden rules are disabled for this repository."));
+	puts(_("Re-enable with: gitten config --local gitten.hidden true"));
+	return 0;
+}

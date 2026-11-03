@@ -3528,10 +3528,14 @@ static GIT_PATH_FUNC(git_path_info_exclude, "info/exclude")
 /* Root-only rules, deliberately separate from the ordinary exclude lists. */
 void setup_hidden_excludes(struct dir_struct *dir)
 {
+	int enabled = 1;
 	struct pattern_list *pl;
 	char *path;
 
 	if (!repo_get_work_tree(the_repository))
+		return;
+	repo_config_get_bool(the_repository, "gitten.hidden", &enabled);
+	if (!enabled)
 		return;
 	path = repo_worktree_path(the_repository, ".githidden");
 	pl = add_pattern_list(dir, EXC_FILE, ".githidden");

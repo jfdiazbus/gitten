@@ -191,6 +191,7 @@ git-sparse-checkout                     mainporcelain
 git-stage                                                               complete
 git-stash                               mainporcelain
 git-status                              mainporcelain           info
+git-stop                                mainporcelain
 git-stripspace                          purehelpers
 git-submodule                           mainporcelain
 git-svn                                 foreignscminterface

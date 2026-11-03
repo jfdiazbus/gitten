@@ -39,6 +39,13 @@ Tracked files retain normal behavior until `git hidden apply` is run.
 The rules file can itself be tracked. Stock Git does not interpret it;
 these rules require gitten or this fork's Git executable.
 
+CONFIGURATION
+-------------
+`gitten.hidden` defaults to `true`. `git stop` sets it to `false` in local
+repository configuration, disabling `.githidden` matching and making this
+command a no-op. Re-enable with `git config --local gitten.hidden true`.
+Ordinary ignore rules continue to apply.
+
 SEE ALSO
 --------
-linkgit:gitignore[5], linkgit:git-add[1], linkgit:git-rm[1]
+linkgit:gitignore[5], linkgit:git-add[1], linkgit:git-rm[1], linkgit:git-stop[1]

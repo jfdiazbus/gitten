@@ -207,4 +207,74 @@ test_expect_success SYMLINKS 'hidden rules cannot be read through a symlink' '
 	)
 '
 
+test_expect_success 'stop preserves rules and index, persists, and respects standard ignores' '
+	test_create_repo stopped &&
+	(
+		cd stopped &&
+		mkdir sub && echo tracked >tracked &&
+		git add tracked && git commit -m initial &&
+		printf "secret\nignored\ntracked\n" >.githidden &&
+		echo ignored >.gitignore && touch secret ignored &&
+		git config core.untrackedCache true &&
+		git status --porcelain -uall >actual &&
+		git status --porcelain -uall >actual &&
+		test_grep ! secret actual &&
+		cp .git/index before && cp .githidden rules-before &&
+		(cd sub && "$GIT_BUILD_DIR/gitten" stop) &&
+		test_cmp before .git/index && test_cmp rules-before .githidden &&
+		test "$(git config --local --get gitten.hidden)" = false &&
+		git hidden apply >applied && test_must_be_empty applied &&
+		test_cmp before .git/index &&
+		git status --porcelain -uall >actual &&
+		test_grep secret actual && test_grep ! ignored actual &&
+		git status --porcelain -uall >actual &&
+		git add secret && git ls-files --error-unmatch secret &&
+		git stop && test "$(git config --local --get gitten.hidden)" = false
+	)
+'
+
+test_expect_success 're-enabling rules invalidates the untracked cache' '
+	(
+		cd stopped &&
+		echo local >another && echo another >>.githidden &&
+		git status --porcelain -uall >actual &&
+		test_grep another actual &&
+		git status --porcelain -uall >actual &&
+		git config --local gitten.hidden true &&
+		git status --porcelain -uall >actual &&
+		test_grep ! another actual &&
+		git check-ignore another &&
+		git ls-files --error-unmatch tracked
+	)
+'
+
+test_expect_success 'one-command override does not change saved stop setting' '
+	(
+		cd stopped &&
+		git stop &&
+		git -c gitten.hidden=true status --porcelain -uall >actual &&
+		test_grep ! another actual &&
+		test "$(git config --local --get gitten.hidden)" = false &&
+		git status --porcelain -uall >actual && test_grep another actual
+	)
+'
+
+test_expect_success 'unexpected stop arguments do not change configuration' '
+	(
+		cd stopped &&
+		git config --local gitten.hidden true &&
+		test_must_fail git stop unexpected &&
+		test "$(git config --local --get gitten.hidden)" = true
+	)
+'
+
+test_expect_success SYMLINKS 'stop bypasses an unreadable hidden rule source' '
+	(
+		cd symlink &&
+		git stop && git status --porcelain >actual &&
+		git config --local gitten.hidden true &&
+		test_must_fail git status
+	)
+'
+
 test_done

@@ -1,0 +1,38 @@
+git-stop(1)
+===========
+
+NAME
+----
+git-stop - Disable .githidden rules in the local repository
+
+SYNOPSIS
+--------
+[verse]
+'git stop'
+
+DESCRIPTION
+-----------
+Disable `.githidden` matching for this repository by writing
+`gitten.hidden=false` to its local configuration. The setting persists and
+also affects linked worktrees that share this repository configuration.
+The rules file, index, local files, and history are preserved.
+
+Untracked files excluded only by `.githidden` become visible to ordinary
+status and staging. Standard ignore rules, including `.gitignore`, still
+apply. `git hidden apply` has no effect while the rules are disabled.
+
+This does not re-track files already removed from the index or undo staged
+removals. Inspect the index before staging files again.
+
+RE-ENABLING RULES
+----------------
+[verse]
+git config --local gitten.hidden true
+
+Rules are enabled by default. For one command, override the saved setting
+with `git -c gitten.hidden=true status`. The local setting is not transmitted
+by push or clone.
+
+SEE ALSO
+--------
+linkgit:git-hidden[1], linkgit:git-config[1], linkgit:gitignore[5]

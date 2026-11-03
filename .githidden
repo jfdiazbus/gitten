@@ -5,3 +5,16 @@ cache/
 /root-only.txt
 file with spaces
 !public.secret
+
+# Optional files not needed by install.sh's command-line build.
+# These rules do not untrack existing source files.
+/ci/
+/git-gui/
+/gitk-git/
+/gitweb/
+/po/
+/Documentation/RelNotes/
+/RelNotes
+/.clang-format
+/.editorconfig
+/.tsan-suppressions

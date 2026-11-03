@@ -4,6 +4,9 @@ Git with repository-root `.githidden` rules. This repository contains the full
 Git source at its root, plus native hidden-file support. Git commands,
 repository formats, and remote protocols are preserved.
 
+Read the [gitten command manual](MANUAL.md) for everyday commands, hidden rules,
+configuration, and troubleshooting.
+
 ## Download and install
 
 On Linux or macOS, install gitten with:
@@ -128,7 +131,23 @@ be lost. Dry runs perform the same checks without writing the index.
 Previously committed files remain in history; this feature does not erase
 secrets from old commits.
 
-See [git-hidden](Documentation/git-hidden.adoc) for command details.
+To stop hiding files in this local repository:
+
+```sh
+gitten stop
+```
+
+This preserves `.githidden`, local files, and the index. Normal `.gitignore`
+rules still apply. Re-enable hidden rules with:
+
+```sh
+gitten config --local gitten.hidden true
+```
+
+Stopping does not re-track previously untracked files or undo staged removals.
+See the [manual](MANUAL.md#stop-hiding-files),
+[git-hidden](Documentation/git-hidden.adoc), and
+[git-stop](Documentation/git-stop.adoc) for command details.
 
 ## Project contents
 

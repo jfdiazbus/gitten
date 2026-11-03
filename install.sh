@@ -98,6 +98,10 @@ bin_dir=$(cd "$bin_dir" && pwd -P)
 # The final prefix overrides the original path, which may have been relative.
 "$make_command" -C "$source_dir" -j"$jobs" "$@" "prefix=$prefix" all
 "$make_command" -C "$source_dir" "$@" "prefix=$prefix" INSTALL_STRIP=-s install
+if [ -f "$source_dir/MANUAL.md" ]; then
+	mkdir -p "$prefix/share/doc/gitten"
+	cp "$source_dir/MANUAL.md" "$prefix/share/doc/gitten/MANUAL.md"
+fi
 if [ "$bin_dir" != "$prefix/bin" ]; then
 	ln -sf "$prefix/bin/gitten" "$bin_dir/gitten"
 fi

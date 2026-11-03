@@ -285,6 +285,7 @@ int cmd_show_ref(int argc, const char **argv, const char *prefix, struct reposit
 int cmd_pack_refs(int argc, const char **argv, const char *prefix, struct repository *repo);
 int cmd_replace(int argc, const char **argv, const char *prefix, struct repository *repo);
 
+int cmd_stop(int argc, const char **argv, const char *prefix, struct repository *repo);
 int cmd_hidden(int argc, const char **argv, const char *prefix, struct repository *repo);
 
 #endif
