@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# wrap-for-bin.sh: Template for git executable wrapper scripts
+# to run test suite against sandbox, but with only bindir-installed
+# executables in PATH.  The Makefile copies this into various
+# files in bin-wrappers, substituting
+# /home/juan-fe/Proyects/gitten, /home/juan-fe/Proyects/gitten/templates/blt and /home/juan-fe/Proyects/gitten/t/helper/test-fake-ssh.
+
+GIT_EXEC_PATH='/home/juan-fe/Proyects/gitten'
+if test -n "$NO_SET_GIT_TEMPLATE_DIR"
+then
+	unset GIT_TEMPLATE_DIR
+else
+	GIT_TEMPLATE_DIR='/home/juan-fe/Proyects/gitten/templates/blt'
+	export GIT_TEMPLATE_DIR
+fi
+MERGE_TOOLS_DIR='/home/juan-fe/Proyects/gitten/mergetools'
+GITPERLLIB='/home/juan-fe/Proyects/gitten/perl/build/lib'"${GITPERLLIB:+:$GITPERLLIB}"
+GIT_TEXTDOMAINDIR='/home/juan-fe/Proyects/gitten/po/build/locale'
+PATH='/home/juan-fe/Proyects/gitten/bin-wrappers:'"$PATH"
+
+export MERGE_TOOLS_DIR GIT_EXEC_PATH GITPERLLIB PATH GIT_TEXTDOMAINDIR
+
+case "$GIT_DEBUGGER" in
+'')
+	exec "/home/juan-fe/Proyects/gitten/t/helper/test-fake-ssh" "$@"
+	;;
+1)
+	unset GIT_DEBUGGER
+	exec gdb --args "/home/juan-fe/Proyects/gitten/t/helper/test-fake-ssh" "$@"
+	;;
+*)
+	GIT_DEBUGGER_ARGS="$GIT_DEBUGGER"
+	unset GIT_DEBUGGER
+	exec ${GIT_DEBUGGER_ARGS} "/home/juan-fe/Proyects/gitten/t/helper/test-fake-ssh" "$@"
+	;;
+esac

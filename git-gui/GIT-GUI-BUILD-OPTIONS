@@ -1,0 +1,6 @@
+GITGUI_GITEXECDIR=/home/juan-fe/libexec/git-core
+GITGUI_LIBDIR=/home/juan-fe/share/git-gui/lib
+GITGUI_RELATIVE=
+SHELL_PATH=/bin/sh
+TCLTK_PATH=wish
+TCL_PATH=tclsh

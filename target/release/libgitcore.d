@@ -1,0 +1,1 @@
+/home/juan-fe/Proyects/gitten/target/release/libgitcore.a: /home/juan-fe/Proyects/gitten/build.rs /home/juan-fe/Proyects/gitten/src/csum_file.rs /home/juan-fe/Proyects/gitten/src/hash.rs /home/juan-fe/Proyects/gitten/src/lib.rs /home/juan-fe/Proyects/gitten/src/loose.rs /home/juan-fe/Proyects/gitten/src/varint.rs

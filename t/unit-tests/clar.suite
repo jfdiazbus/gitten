@@ -1,0 +1,751 @@
+extern void test_ctype__isspace(void);
+extern void test_ctype__isdigit(void);
+extern void test_ctype__isalpha(void);
+extern void test_ctype__isalnum(void);
+extern void test_ctype__is_glob_special(void);
+extern void test_ctype__is_regex_special(void);
+extern void test_ctype__is_pathspec_magic(void);
+extern void test_ctype__isascii(void);
+extern void test_ctype__islower(void);
+extern void test_ctype__isupper(void);
+extern void test_ctype__iscntrl(void);
+extern void test_ctype__ispunct(void);
+extern void test_ctype__isxdigit(void);
+extern void test_ctype__isprint(void);
+extern void test_dir__within_depth(void);
+extern void test_dir__common_prefix_skips_excluded_pathspec_items(void);
+extern void test_example_decorate__initialize(void);
+extern void test_example_decorate__cleanup(void);
+extern void test_example_decorate__add(void);
+extern void test_example_decorate__readd(void);
+extern void test_example_decorate__lookup(void);
+extern void test_example_decorate__loop(void);
+extern void test_hash__empty_string(void);
+extern void test_hash__single_character(void);
+extern void test_hash__multi_character(void);
+extern void test_hash__message_digest(void);
+extern void test_hash__alphabet(void);
+extern void test_hash__aaaaaaaaaa_100000(void);
+extern void test_hash__alphabet_100000(void);
+extern void test_hash__zero_blob_literal(void);
+extern void test_hash__three_blob_literal(void);
+extern void test_hash__zero_tree_literal(void);
+extern void test_hashmap__intern(void);
+extern void test_hashmap__replace_case_sensitive(void);
+extern void test_hashmap__replace_case_insensitive(void);
+extern void test_hashmap__get_case_sensitive(void);
+extern void test_hashmap__get_case_insensitive(void);
+extern void test_hashmap__add_case_sensitive(void);
+extern void test_hashmap__add_case_insensitive(void);
+extern void test_hashmap__remove_case_sensitive(void);
+extern void test_hashmap__remove_case_insensitive(void);
+extern void test_hashmap__iterate_case_sensitive(void);
+extern void test_hashmap__iterate_case_insensitive(void);
+extern void test_hashmap__alloc_case_sensitive(void);
+extern void test_hashmap__alloc_case_insensitive(void);
+extern void test_list_objects_filter_options__regular_filters(void);
+extern void test_list_objects_filter_options__auto_allowed(void);
+extern void test_list_objects_filter_options__combine_auto_fails(void);
+extern void test_mem_pool__big_block(void);
+extern void test_mem_pool__tiny_block(void);
+extern void test_odb_inmemory__initialize(void);
+extern void test_odb_inmemory__cleanup(void);
+extern void test_odb_inmemory__new(void);
+extern void test_odb_inmemory__read_missing_object(void);
+extern void test_odb_inmemory__read_empty_tree(void);
+extern void test_odb_inmemory__read_written_object(void);
+extern void test_odb_inmemory__read_stream_object(void);
+extern void test_odb_inmemory__for_each_object(void);
+extern void test_odb_inmemory__for_each_object_can_abort_iteration(void);
+extern void test_odb_inmemory__count_objects(void);
+extern void test_odb_inmemory__find_abbrev_len(void);
+extern void test_odb_inmemory__freshen_object(void);
+extern void test_odb_inmemory__write_object_stream(void);
+extern void test_oid_array__initialize(void);
+extern void test_oid_array__enumerate_unique(void);
+extern void test_oid_array__enumerate_duplicate(void);
+extern void test_oid_array__lookup(void);
+extern void test_oid_array__lookup_non_existent(void);
+extern void test_oid_array__lookup_duplicates(void);
+extern void test_oid_array__lookup_non_existent_dup(void);
+extern void test_oid_array__lookup_almost_dup(void);
+extern void test_oid_array__lookup_single_dup(void);
+extern void test_oidmap__initialize(void);
+extern void test_oidmap__cleanup(void);
+extern void test_oidmap__replace(void);
+extern void test_oidmap__get(void);
+extern void test_oidmap__remove(void);
+extern void test_oidmap__iterate(void);
+extern void test_oidmap__clear_without_free_callback(void);
+extern void test_oidmap__clear_with_free_callback(void);
+extern void test_oidtree__initialize(void);
+extern void test_oidtree__cleanup(void);
+extern void test_oidtree__contains(void);
+extern void test_oidtree__each(void);
+extern void test_oidtree__insert_overwrites_data(void);
+extern void test_prio_queue__basic(void);
+extern void test_prio_queue__mixed(void);
+extern void test_prio_queue__empty(void);
+extern void test_prio_queue__replace(void);
+extern void test_prio_queue__stack(void);
+extern void test_prio_queue__reverse_stack(void);
+extern void test_prio_queue__replace_stack(void);
+extern void test_reftable_basics__binsearch(void);
+extern void test_reftable_basics__binsearch_empty(void);
+extern void test_reftable_basics__names_length(void);
+extern void test_reftable_basics__names_equal(void);
+extern void test_reftable_basics__parse_names(void);
+extern void test_reftable_basics__parse_names_missing_newline(void);
+extern void test_reftable_basics__parse_names_drop_empty_string(void);
+extern void test_reftable_basics__common_prefix_size(void);
+extern void test_reftable_basics__put_get_be64(void);
+extern void test_reftable_basics__put_get_be32(void);
+extern void test_reftable_basics__put_get_be24(void);
+extern void test_reftable_basics__put_get_be16(void);
+extern void test_reftable_basics__alloc_grow(void);
+extern void test_reftable_basics__alloc_grow_or_null(void);
+extern void test_reftable_block__read_write(void);
+extern void test_reftable_block__log_read_write(void);
+extern void test_reftable_block__obj_read_write(void);
+extern void test_reftable_block__ref_read_write(void);
+extern void test_reftable_block__iterator(void);
+extern void test_reftable_block__corrupt_log_block_size(void);
+extern void test_reftable_block__corrupt_block_size(void);
+extern void test_reftable_block__corrupt_restart_count(void);
+extern void test_reftable_block__corrupt_restart_offset(void);
+extern void test_reftable_merged__single_record(void);
+extern void test_reftable_merged__refs(void);
+extern void test_reftable_merged__seek_multiple_times(void);
+extern void test_reftable_merged__seek_multiple_times_no_drain(void);
+extern void test_reftable_merged__logs(void);
+extern void test_reftable_merged__default_write_opts(void);
+extern void test_reftable_pq__record(void);
+extern void test_reftable_pq__index(void);
+extern void test_reftable_pq__merged_iter_pqueue_top(void);
+extern void test_reftable_readwrite__buffer(void);
+extern void test_reftable_readwrite__log_buffer_size(void);
+extern void test_reftable_readwrite__log_overflow(void);
+extern void test_reftable_readwrite__log_write_limits(void);
+extern void test_reftable_readwrite__log_write_read(void);
+extern void test_reftable_readwrite__log_zlib_corruption(void);
+extern void test_reftable_readwrite__table_read_write_sequential(void);
+extern void test_reftable_readwrite__table_write_small_table(void);
+extern void test_reftable_readwrite__table_read_api(void);
+extern void test_reftable_readwrite__table_read_write_seek_linear(void);
+extern void test_reftable_readwrite__table_read_write_seek_linear_sha256(void);
+extern void test_reftable_readwrite__table_read_write_seek_index(void);
+extern void test_reftable_readwrite__table_refs_for_no_index(void);
+extern void test_reftable_readwrite__table_refs_for_obj_index(void);
+extern void test_reftable_readwrite__write_empty_table(void);
+extern void test_reftable_readwrite__write_object_id_min_length(void);
+extern void test_reftable_readwrite__write_object_id_length(void);
+extern void test_reftable_readwrite__write_empty_key(void);
+extern void test_reftable_readwrite__write_key_order(void);
+extern void test_reftable_readwrite__write_multiple_indices(void);
+extern void test_reftable_readwrite__write_multi_level_index(void);
+extern void test_reftable_readwrite__corrupt_table_empty(void);
+extern void test_reftable_readwrite__corrupt_table(void);
+extern void test_reftable_stack__read_file(void);
+extern void test_reftable_stack__add_one(void);
+extern void test_reftable_stack__uptodate(void);
+extern void test_reftable_stack__transaction_api(void);
+extern void test_reftable_stack__transaction_with_reload(void);
+extern void test_reftable_stack__transaction_api_performs_auto_compaction(void);
+extern void test_reftable_stack__auto_compaction_fails_gracefully(void);
+extern void test_reftable_stack__update_index_check(void);
+extern void test_reftable_stack__lock_failure(void);
+extern void test_reftable_stack__add(void);
+extern void test_reftable_stack__iterator(void);
+extern void test_reftable_stack__log_normalize(void);
+extern void test_reftable_stack__tombstone(void);
+extern void test_reftable_stack__hash_id(void);
+extern void test_reftable_stack__suggest_compaction_segment(void);
+extern void test_reftable_stack__suggest_compaction_segment_nothing(void);
+extern void test_reftable_stack__reflog_expire(void);
+extern void test_reftable_stack__empty_add(void);
+extern void test_reftable_stack__auto_compaction(void);
+extern void test_reftable_stack__auto_compaction_factor(void);
+extern void test_reftable_stack__auto_compaction_with_locked_tables(void);
+extern void test_reftable_stack__add_performs_auto_compaction(void);
+extern void test_reftable_stack__compaction_with_locked_tables(void);
+extern void test_reftable_stack__compaction_concurrent(void);
+extern void test_reftable_stack__compaction_concurrent_clean(void);
+extern void test_reftable_stack__read_across_reload(void);
+extern void test_reftable_stack__reload_with_missing_table(void);
+extern void test_reftable_stack__invalid_limit_updates(void);
+extern void test_reftable_stack__two_additions(void);
+extern void test_reftable_table__seek_once(void);
+extern void test_reftable_table__reseek(void);
+extern void test_reftable_table__block_iterator(void);
+extern void test_reftable_table__seek_invalid_log_offset(void);
+extern void test_reftable_table__new_with_truncated_table(void);
+extern void test_reftable_tree__tree_search(void);
+extern void test_reftable_tree__infix_walk(void);
+extern void test_strbuf__static_init(void);
+extern void test_strbuf__dynamic_init(void);
+extern void test_strbuf__add_single_char(void);
+extern void test_strbuf__add_empty_char(void);
+extern void test_strbuf__add_append_char(void);
+extern void test_strbuf__add_single_str(void);
+extern void test_strbuf__add_append_str(void);
+extern void test_strcmp_offset__empty(void);
+extern void test_strcmp_offset__equal(void);
+extern void test_strcmp_offset__different(void);
+extern void test_strcmp_offset__mismatch(void);
+extern void test_strcmp_offset__different_length(void);
+extern void test_string_list__split_f(void);
+extern void test_string_list__split_in_place_f(void);
+extern void test_string_list__split(void);
+extern void test_string_list__split_in_place(void);
+extern void test_string_list__filter(void);
+extern void test_string_list__has_string(void);
+extern void test_string_list__insert(void);
+extern void test_string_list__sort(void);
+extern void test_string_list__remove(void);
+extern void test_string_list__remove_duplicates(void);
+extern void test_string_list__sort_u(void);
+extern void test_string_list__remove_empty_items(void);
+extern void test_string_list__unsorted_string_list_has_string(void);
+extern void test_string_list__unsorted_string_list_delete_item(void);
+extern void test_strvec__init(void);
+extern void test_strvec__dynamic_init(void);
+extern void test_strvec__clear(void);
+extern void test_strvec__push(void);
+extern void test_strvec__pushf(void);
+extern void test_strvec__pushl(void);
+extern void test_strvec__pushv(void);
+extern void test_strvec__splice_just_initialized_strvec(void);
+extern void test_strvec__splice_with_same_size_replacement(void);
+extern void test_strvec__splice_with_smaller_replacement(void);
+extern void test_strvec__splice_with_bigger_replacement(void);
+extern void test_strvec__splice_with_empty_replacement(void);
+extern void test_strvec__splice_with_empty_original(void);
+extern void test_strvec__splice_at_tail(void);
+extern void test_strvec__replace_at_head(void);
+extern void test_strvec__replace_at_tail(void);
+extern void test_strvec__replace_in_between(void);
+extern void test_strvec__replace_with_substring(void);
+extern void test_strvec__remove_at_head(void);
+extern void test_strvec__remove_at_tail(void);
+extern void test_strvec__remove_in_between(void);
+extern void test_strvec__pop_empty_array(void);
+extern void test_strvec__pop_non_empty_array(void);
+extern void test_strvec__split_empty_string(void);
+extern void test_strvec__split_single_item(void);
+extern void test_strvec__split_multiple_items(void);
+extern void test_strvec__split_whitespace_only(void);
+extern void test_strvec__split_multiple_consecutive_whitespaces(void);
+extern void test_strvec__detach(void);
+extern void test_trailer__empty_input(void);
+extern void test_trailer__no_newline_start(void);
+extern void test_trailer__newline_start(void);
+extern void test_trailer__no_body_text(void);
+extern void test_trailer__body_text_no_divider(void);
+extern void test_trailer__body_no_divider_2nd_block(void);
+extern void test_trailer__body_and_divider(void);
+extern void test_trailer__non_trailer_in_block(void);
+extern void test_trailer__too_many_non_trailers(void);
+extern void test_trailer__one_non_trailer_no_git_trailers(void);
+extern void test_trailer__URL(void);
+extern void test_trailer__not_a_URL_space_after_separator(void);
+extern void test_trailer__not_a_URL_space_before_separator(void);
+extern void test_urlmatch_normalization__scheme(void);
+extern void test_urlmatch_normalization__authority(void);
+extern void test_urlmatch_normalization__port(void);
+extern void test_urlmatch_normalization__port_normalization(void);
+extern void test_urlmatch_normalization__general_escape(void);
+extern void test_urlmatch_normalization__high_bit(void);
+extern void test_urlmatch_normalization__utf8_escape(void);
+extern void test_urlmatch_normalization__username_pass(void);
+extern void test_urlmatch_normalization__length(void);
+extern void test_urlmatch_normalization__dots(void);
+extern void test_urlmatch_normalization__equivalents(void);
+extern void test_urlmatch_normalization__parse_scp(void);
+extern void test_urlmatch_normalization__parse_url_form(void);
+extern void test_urlmatch_normalization__parse_strips_query_and_fragment(void);
+extern void test_utf8_width__strnwidth_chinese(void);
+extern void test_utf8_width__strwidth_chinese(void);
+extern void test_utf8_width__strnwidth_japanese_korean(void);
+extern void test_utf8_width__strnwidth_cjk_with_ansi(void);
+extern void test_utf8_width__strbuf_utf8_align(void);
+static const struct clar_func _clar_cb_ctype[] = {
+    { "isspace", &test_ctype__isspace },
+    { "isdigit", &test_ctype__isdigit },
+    { "isalpha", &test_ctype__isalpha },
+    { "isalnum", &test_ctype__isalnum },
+    { "is_glob_special", &test_ctype__is_glob_special },
+    { "is_regex_special", &test_ctype__is_regex_special },
+    { "is_pathspec_magic", &test_ctype__is_pathspec_magic },
+    { "isascii", &test_ctype__isascii },
+    { "islower", &test_ctype__islower },
+    { "isupper", &test_ctype__isupper },
+    { "iscntrl", &test_ctype__iscntrl },
+    { "ispunct", &test_ctype__ispunct },
+    { "isxdigit", &test_ctype__isxdigit },
+    { "isprint", &test_ctype__isprint },
+};
+static const struct clar_func _clar_cb_dir[] = {
+    { "within_depth", &test_dir__within_depth },
+    { "common_prefix_skips_excluded_pathspec_items", &test_dir__common_prefix_skips_excluded_pathspec_items },
+};
+static const struct clar_func _clar_cb_example_decorate[] = {
+    { "add", &test_example_decorate__add },
+    { "readd", &test_example_decorate__readd },
+    { "lookup", &test_example_decorate__lookup },
+    { "loop", &test_example_decorate__loop },
+};
+static const struct clar_func _clar_cb_hash[] = {
+    { "empty_string", &test_hash__empty_string },
+    { "single_character", &test_hash__single_character },
+    { "multi_character", &test_hash__multi_character },
+    { "message_digest", &test_hash__message_digest },
+    { "alphabet", &test_hash__alphabet },
+    { "aaaaaaaaaa_100000", &test_hash__aaaaaaaaaa_100000 },
+    { "alphabet_100000", &test_hash__alphabet_100000 },
+    { "zero_blob_literal", &test_hash__zero_blob_literal },
+    { "three_blob_literal", &test_hash__three_blob_literal },
+    { "zero_tree_literal", &test_hash__zero_tree_literal },
+};
+static const struct clar_func _clar_cb_hashmap[] = {
+    { "intern", &test_hashmap__intern },
+    { "replace_case_sensitive", &test_hashmap__replace_case_sensitive },
+    { "replace_case_insensitive", &test_hashmap__replace_case_insensitive },
+    { "get_case_sensitive", &test_hashmap__get_case_sensitive },
+    { "get_case_insensitive", &test_hashmap__get_case_insensitive },
+    { "add_case_sensitive", &test_hashmap__add_case_sensitive },
+    { "add_case_insensitive", &test_hashmap__add_case_insensitive },
+    { "remove_case_sensitive", &test_hashmap__remove_case_sensitive },
+    { "remove_case_insensitive", &test_hashmap__remove_case_insensitive },
+    { "iterate_case_sensitive", &test_hashmap__iterate_case_sensitive },
+    { "iterate_case_insensitive", &test_hashmap__iterate_case_insensitive },
+    { "alloc_case_sensitive", &test_hashmap__alloc_case_sensitive },
+    { "alloc_case_insensitive", &test_hashmap__alloc_case_insensitive },
+};
+static const struct clar_func _clar_cb_list_objects_filter_options[] = {
+    { "regular_filters", &test_list_objects_filter_options__regular_filters },
+    { "auto_allowed", &test_list_objects_filter_options__auto_allowed },
+    { "combine_auto_fails", &test_list_objects_filter_options__combine_auto_fails },
+};
+static const struct clar_func _clar_cb_mem_pool[] = {
+    { "big_block", &test_mem_pool__big_block },
+    { "tiny_block", &test_mem_pool__tiny_block },
+};
+static const struct clar_func _clar_cb_odb_inmemory[] = {
+    { "new", &test_odb_inmemory__new },
+    { "read_missing_object", &test_odb_inmemory__read_missing_object },
+    { "read_empty_tree", &test_odb_inmemory__read_empty_tree },
+    { "read_written_object", &test_odb_inmemory__read_written_object },
+    { "read_stream_object", &test_odb_inmemory__read_stream_object },
+    { "for_each_object", &test_odb_inmemory__for_each_object },
+    { "for_each_object_can_abort_iteration", &test_odb_inmemory__for_each_object_can_abort_iteration },
+    { "count_objects", &test_odb_inmemory__count_objects },
+    { "find_abbrev_len", &test_odb_inmemory__find_abbrev_len },
+    { "freshen_object", &test_odb_inmemory__freshen_object },
+    { "write_object_stream", &test_odb_inmemory__write_object_stream },
+};
+static const struct clar_func _clar_cb_oid_array[] = {
+    { "enumerate_unique", &test_oid_array__enumerate_unique },
+    { "enumerate_duplicate", &test_oid_array__enumerate_duplicate },
+    { "lookup", &test_oid_array__lookup },
+    { "lookup_non_existent", &test_oid_array__lookup_non_existent },
+    { "lookup_duplicates", &test_oid_array__lookup_duplicates },
+    { "lookup_non_existent_dup", &test_oid_array__lookup_non_existent_dup },
+    { "lookup_almost_dup", &test_oid_array__lookup_almost_dup },
+    { "lookup_single_dup", &test_oid_array__lookup_single_dup },
+};
+static const struct clar_func _clar_cb_oidmap[] = {
+    { "replace", &test_oidmap__replace },
+    { "get", &test_oidmap__get },
+    { "remove", &test_oidmap__remove },
+    { "iterate", &test_oidmap__iterate },
+    { "clear_without_free_callback", &test_oidmap__clear_without_free_callback },
+    { "clear_with_free_callback", &test_oidmap__clear_with_free_callback },
+};
+static const struct clar_func _clar_cb_oidtree[] = {
+    { "contains", &test_oidtree__contains },
+    { "each", &test_oidtree__each },
+    { "insert_overwrites_data", &test_oidtree__insert_overwrites_data },
+};
+static const struct clar_func _clar_cb_prio_queue[] = {
+    { "basic", &test_prio_queue__basic },
+    { "mixed", &test_prio_queue__mixed },
+    { "empty", &test_prio_queue__empty },
+    { "replace", &test_prio_queue__replace },
+    { "stack", &test_prio_queue__stack },
+    { "reverse_stack", &test_prio_queue__reverse_stack },
+    { "replace_stack", &test_prio_queue__replace_stack },
+};
+static const struct clar_func _clar_cb_reftable_basics[] = {
+    { "binsearch", &test_reftable_basics__binsearch },
+    { "binsearch_empty", &test_reftable_basics__binsearch_empty },
+    { "names_length", &test_reftable_basics__names_length },
+    { "names_equal", &test_reftable_basics__names_equal },
+    { "parse_names", &test_reftable_basics__parse_names },
+    { "parse_names_missing_newline", &test_reftable_basics__parse_names_missing_newline },
+    { "parse_names_drop_empty_string", &test_reftable_basics__parse_names_drop_empty_string },
+    { "common_prefix_size", &test_reftable_basics__common_prefix_size },
+    { "put_get_be64", &test_reftable_basics__put_get_be64 },
+    { "put_get_be32", &test_reftable_basics__put_get_be32 },
+    { "put_get_be24", &test_reftable_basics__put_get_be24 },
+    { "put_get_be16", &test_reftable_basics__put_get_be16 },
+    { "alloc_grow", &test_reftable_basics__alloc_grow },
+    { "alloc_grow_or_null", &test_reftable_basics__alloc_grow_or_null },
+};
+static const struct clar_func _clar_cb_reftable_block[] = {
+    { "read_write", &test_reftable_block__read_write },
+    { "log_read_write", &test_reftable_block__log_read_write },
+    { "obj_read_write", &test_reftable_block__obj_read_write },
+    { "ref_read_write", &test_reftable_block__ref_read_write },
+    { "iterator", &test_reftable_block__iterator },
+    { "corrupt_log_block_size", &test_reftable_block__corrupt_log_block_size },
+    { "corrupt_block_size", &test_reftable_block__corrupt_block_size },
+    { "corrupt_restart_count", &test_reftable_block__corrupt_restart_count },
+    { "corrupt_restart_offset", &test_reftable_block__corrupt_restart_offset },
+};
+static const struct clar_func _clar_cb_reftable_merged[] = {
+    { "single_record", &test_reftable_merged__single_record },
+    { "refs", &test_reftable_merged__refs },
+    { "seek_multiple_times", &test_reftable_merged__seek_multiple_times },
+    { "seek_multiple_times_no_drain", &test_reftable_merged__seek_multiple_times_no_drain },
+    { "logs", &test_reftable_merged__logs },
+    { "default_write_opts", &test_reftable_merged__default_write_opts },
+};
+static const struct clar_func _clar_cb_reftable_pq[] = {
+    { "record", &test_reftable_pq__record },
+    { "index", &test_reftable_pq__index },
+    { "merged_iter_pqueue_top", &test_reftable_pq__merged_iter_pqueue_top },
+};
+static const struct clar_func _clar_cb_reftable_readwrite[] = {
+    { "buffer", &test_reftable_readwrite__buffer },
+    { "log_buffer_size", &test_reftable_readwrite__log_buffer_size },
+    { "log_overflow", &test_reftable_readwrite__log_overflow },
+    { "log_write_limits", &test_reftable_readwrite__log_write_limits },
+    { "log_write_read", &test_reftable_readwrite__log_write_read },
+    { "log_zlib_corruption", &test_reftable_readwrite__log_zlib_corruption },
+    { "table_read_write_sequential", &test_reftable_readwrite__table_read_write_sequential },
+    { "table_write_small_table", &test_reftable_readwrite__table_write_small_table },
+    { "table_read_api", &test_reftable_readwrite__table_read_api },
+    { "table_read_write_seek_linear", &test_reftable_readwrite__table_read_write_seek_linear },
+    { "table_read_write_seek_linear_sha256", &test_reftable_readwrite__table_read_write_seek_linear_sha256 },
+    { "table_read_write_seek_index", &test_reftable_readwrite__table_read_write_seek_index },
+    { "table_refs_for_no_index", &test_reftable_readwrite__table_refs_for_no_index },
+    { "table_refs_for_obj_index", &test_reftable_readwrite__table_refs_for_obj_index },
+    { "write_empty_table", &test_reftable_readwrite__write_empty_table },
+    { "write_object_id_min_length", &test_reftable_readwrite__write_object_id_min_length },
+    { "write_object_id_length", &test_reftable_readwrite__write_object_id_length },
+    { "write_empty_key", &test_reftable_readwrite__write_empty_key },
+    { "write_key_order", &test_reftable_readwrite__write_key_order },
+    { "write_multiple_indices", &test_reftable_readwrite__write_multiple_indices },
+    { "write_multi_level_index", &test_reftable_readwrite__write_multi_level_index },
+    { "corrupt_table_empty", &test_reftable_readwrite__corrupt_table_empty },
+    { "corrupt_table", &test_reftable_readwrite__corrupt_table },
+};
+static const struct clar_func _clar_cb_reftable_stack[] = {
+    { "read_file", &test_reftable_stack__read_file },
+    { "add_one", &test_reftable_stack__add_one },
+    { "uptodate", &test_reftable_stack__uptodate },
+    { "transaction_api", &test_reftable_stack__transaction_api },
+    { "transaction_with_reload", &test_reftable_stack__transaction_with_reload },
+    { "transaction_api_performs_auto_compaction", &test_reftable_stack__transaction_api_performs_auto_compaction },
+    { "auto_compaction_fails_gracefully", &test_reftable_stack__auto_compaction_fails_gracefully },
+    { "update_index_check", &test_reftable_stack__update_index_check },
+    { "lock_failure", &test_reftable_stack__lock_failure },
+    { "add", &test_reftable_stack__add },
+    { "iterator", &test_reftable_stack__iterator },
+    { "log_normalize", &test_reftable_stack__log_normalize },
+    { "tombstone", &test_reftable_stack__tombstone },
+    { "hash_id", &test_reftable_stack__hash_id },
+    { "suggest_compaction_segment", &test_reftable_stack__suggest_compaction_segment },
+    { "suggest_compaction_segment_nothing", &test_reftable_stack__suggest_compaction_segment_nothing },
+    { "reflog_expire", &test_reftable_stack__reflog_expire },
+    { "empty_add", &test_reftable_stack__empty_add },
+    { "auto_compaction", &test_reftable_stack__auto_compaction },
+    { "auto_compaction_factor", &test_reftable_stack__auto_compaction_factor },
+    { "auto_compaction_with_locked_tables", &test_reftable_stack__auto_compaction_with_locked_tables },
+    { "add_performs_auto_compaction", &test_reftable_stack__add_performs_auto_compaction },
+    { "compaction_with_locked_tables", &test_reftable_stack__compaction_with_locked_tables },
+    { "compaction_concurrent", &test_reftable_stack__compaction_concurrent },
+    { "compaction_concurrent_clean", &test_reftable_stack__compaction_concurrent_clean },
+    { "read_across_reload", &test_reftable_stack__read_across_reload },
+    { "reload_with_missing_table", &test_reftable_stack__reload_with_missing_table },
+    { "invalid_limit_updates", &test_reftable_stack__invalid_limit_updates },
+    { "two_additions", &test_reftable_stack__two_additions },
+};
+static const struct clar_func _clar_cb_reftable_table[] = {
+    { "seek_once", &test_reftable_table__seek_once },
+    { "reseek", &test_reftable_table__reseek },
+    { "block_iterator", &test_reftable_table__block_iterator },
+    { "seek_invalid_log_offset", &test_reftable_table__seek_invalid_log_offset },
+    { "new_with_truncated_table", &test_reftable_table__new_with_truncated_table },
+};
+static const struct clar_func _clar_cb_reftable_tree[] = {
+    { "tree_search", &test_reftable_tree__tree_search },
+    { "infix_walk", &test_reftable_tree__infix_walk },
+};
+static const struct clar_func _clar_cb_strbuf[] = {
+    { "static_init", &test_strbuf__static_init },
+    { "dynamic_init", &test_strbuf__dynamic_init },
+    { "add_single_char", &test_strbuf__add_single_char },
+    { "add_empty_char", &test_strbuf__add_empty_char },
+    { "add_append_char", &test_strbuf__add_append_char },
+    { "add_single_str", &test_strbuf__add_single_str },
+    { "add_append_str", &test_strbuf__add_append_str },
+};
+static const struct clar_func _clar_cb_strcmp_offset[] = {
+    { "empty", &test_strcmp_offset__empty },
+    { "equal", &test_strcmp_offset__equal },
+    { "different", &test_strcmp_offset__different },
+    { "mismatch", &test_strcmp_offset__mismatch },
+    { "different_length", &test_strcmp_offset__different_length },
+};
+static const struct clar_func _clar_cb_string_list[] = {
+    { "split_f", &test_string_list__split_f },
+    { "split_in_place_f", &test_string_list__split_in_place_f },
+    { "split", &test_string_list__split },
+    { "split_in_place", &test_string_list__split_in_place },
+    { "filter", &test_string_list__filter },
+    { "has_string", &test_string_list__has_string },
+    { "insert", &test_string_list__insert },
+    { "sort", &test_string_list__sort },
+    { "remove", &test_string_list__remove },
+    { "remove_duplicates", &test_string_list__remove_duplicates },
+    { "sort_u", &test_string_list__sort_u },
+    { "remove_empty_items", &test_string_list__remove_empty_items },
+    { "unsorted_string_list_has_string", &test_string_list__unsorted_string_list_has_string },
+    { "unsorted_string_list_delete_item", &test_string_list__unsorted_string_list_delete_item },
+};
+static const struct clar_func _clar_cb_strvec[] = {
+    { "init", &test_strvec__init },
+    { "dynamic_init", &test_strvec__dynamic_init },
+    { "clear", &test_strvec__clear },
+    { "push", &test_strvec__push },
+    { "pushf", &test_strvec__pushf },
+    { "pushl", &test_strvec__pushl },
+    { "pushv", &test_strvec__pushv },
+    { "splice_just_initialized_strvec", &test_strvec__splice_just_initialized_strvec },
+    { "splice_with_same_size_replacement", &test_strvec__splice_with_same_size_replacement },
+    { "splice_with_smaller_replacement", &test_strvec__splice_with_smaller_replacement },
+    { "splice_with_bigger_replacement", &test_strvec__splice_with_bigger_replacement },
+    { "splice_with_empty_replacement", &test_strvec__splice_with_empty_replacement },
+    { "splice_with_empty_original", &test_strvec__splice_with_empty_original },
+    { "splice_at_tail", &test_strvec__splice_at_tail },
+    { "replace_at_head", &test_strvec__replace_at_head },
+    { "replace_at_tail", &test_strvec__replace_at_tail },
+    { "replace_in_between", &test_strvec__replace_in_between },
+    { "replace_with_substring", &test_strvec__replace_with_substring },
+    { "remove_at_head", &test_strvec__remove_at_head },
+    { "remove_at_tail", &test_strvec__remove_at_tail },
+    { "remove_in_between", &test_strvec__remove_in_between },
+    { "pop_empty_array", &test_strvec__pop_empty_array },
+    { "pop_non_empty_array", &test_strvec__pop_non_empty_array },
+    { "split_empty_string", &test_strvec__split_empty_string },
+    { "split_single_item", &test_strvec__split_single_item },
+    { "split_multiple_items", &test_strvec__split_multiple_items },
+    { "split_whitespace_only", &test_strvec__split_whitespace_only },
+    { "split_multiple_consecutive_whitespaces", &test_strvec__split_multiple_consecutive_whitespaces },
+    { "detach", &test_strvec__detach },
+};
+static const struct clar_func _clar_cb_trailer[] = {
+    { "empty_input", &test_trailer__empty_input },
+    { "no_newline_start", &test_trailer__no_newline_start },
+    { "newline_start", &test_trailer__newline_start },
+    { "no_body_text", &test_trailer__no_body_text },
+    { "body_text_no_divider", &test_trailer__body_text_no_divider },
+    { "body_no_divider_2nd_block", &test_trailer__body_no_divider_2nd_block },
+    { "body_and_divider", &test_trailer__body_and_divider },
+    { "non_trailer_in_block", &test_trailer__non_trailer_in_block },
+    { "too_many_non_trailers", &test_trailer__too_many_non_trailers },
+    { "one_non_trailer_no_git_trailers", &test_trailer__one_non_trailer_no_git_trailers },
+    { "URL", &test_trailer__URL },
+    { "not_a_URL_space_after_separator", &test_trailer__not_a_URL_space_after_separator },
+    { "not_a_URL_space_before_separator", &test_trailer__not_a_URL_space_before_separator },
+};
+static const struct clar_func _clar_cb_urlmatch_normalization[] = {
+    { "scheme", &test_urlmatch_normalization__scheme },
+    { "authority", &test_urlmatch_normalization__authority },
+    { "port", &test_urlmatch_normalization__port },
+    { "port_normalization", &test_urlmatch_normalization__port_normalization },
+    { "general_escape", &test_urlmatch_normalization__general_escape },
+    { "high_bit", &test_urlmatch_normalization__high_bit },
+    { "utf8_escape", &test_urlmatch_normalization__utf8_escape },
+    { "username_pass", &test_urlmatch_normalization__username_pass },
+    { "length", &test_urlmatch_normalization__length },
+    { "dots", &test_urlmatch_normalization__dots },
+    { "equivalents", &test_urlmatch_normalization__equivalents },
+    { "parse_scp", &test_urlmatch_normalization__parse_scp },
+    { "parse_url_form", &test_urlmatch_normalization__parse_url_form },
+    { "parse_strips_query_and_fragment", &test_urlmatch_normalization__parse_strips_query_and_fragment },
+};
+static const struct clar_func _clar_cb_utf8_width[] = {
+    { "strnwidth_chinese", &test_utf8_width__strnwidth_chinese },
+    { "strwidth_chinese", &test_utf8_width__strwidth_chinese },
+    { "strnwidth_japanese_korean", &test_utf8_width__strnwidth_japanese_korean },
+    { "strnwidth_cjk_with_ansi", &test_utf8_width__strnwidth_cjk_with_ansi },
+    { "strbuf_utf8_align", &test_utf8_width__strbuf_utf8_align },
+};
+static struct clar_suite _clar_suites[] = {
+    {
+        "ctype",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_ctype, 14, 1
+    },
+    {
+        "dir",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_dir, 2, 1
+    },
+    {
+        "example_decorate",
+        { "initialize", &test_example_decorate__initialize },
+        { "cleanup", &test_example_decorate__cleanup },
+        _clar_cb_example_decorate, 4, 1
+    },
+    {
+        "hash",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_hash, 10, 1
+    },
+    {
+        "hashmap",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_hashmap, 13, 1
+    },
+    {
+        "list_objects_filter_options",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_list_objects_filter_options, 3, 1
+    },
+    {
+        "mem_pool",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_mem_pool, 2, 1
+    },
+    {
+        "odb_inmemory",
+        { "initialize", &test_odb_inmemory__initialize },
+        { "cleanup", &test_odb_inmemory__cleanup },
+        _clar_cb_odb_inmemory, 11, 1
+    },
+    {
+        "oid_array",
+        { "initialize", &test_oid_array__initialize },
+        { NULL, NULL },
+        _clar_cb_oid_array, 8, 1
+    },
+    {
+        "oidmap",
+        { "initialize", &test_oidmap__initialize },
+        { "cleanup", &test_oidmap__cleanup },
+        _clar_cb_oidmap, 6, 1
+    },
+    {
+        "oidtree",
+        { "initialize", &test_oidtree__initialize },
+        { "cleanup", &test_oidtree__cleanup },
+        _clar_cb_oidtree, 3, 1
+    },
+    {
+        "prio_queue",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_prio_queue, 7, 1
+    },
+    {
+        "reftable_basics",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_reftable_basics, 14, 1
+    },
+    {
+        "reftable_block",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_reftable_block, 9, 1
+    },
+    {
+        "reftable_merged",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_reftable_merged, 6, 1
+    },
+    {
+        "reftable_pq",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_reftable_pq, 3, 1
+    },
+    {
+        "reftable_readwrite",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_reftable_readwrite, 23, 1
+    },
+    {
+        "reftable_stack",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_reftable_stack, 29, 1
+    },
+    {
+        "reftable_table",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_reftable_table, 5, 1
+    },
+    {
+        "reftable_tree",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_reftable_tree, 2, 1
+    },
+    {
+        "strbuf",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_strbuf, 7, 1
+    },
+    {
+        "strcmp_offset",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_strcmp_offset, 5, 1
+    },
+    {
+        "string_list",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_string_list, 14, 1
+    },
+    {
+        "strvec",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_strvec, 29, 1
+    },
+    {
+        "trailer",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_trailer, 13, 1
+    },
+    {
+        "urlmatch_normalization",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_urlmatch_normalization, 14, 1
+    },
+    {
+        "utf8_width",
+        { NULL, NULL },
+        { NULL, NULL },
+        _clar_cb_utf8_width, 5, 1
+    },
+};
+static const size_t _clar_suite_count = 27;
+static const size_t _clar_callback_count = 261;
